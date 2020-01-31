@@ -2,19 +2,35 @@
 
 require_once('./lib/config.php');
 require_once('./lib/banco.php');
-
+session_start();
 require('./head.php');
 
 $paginas = [
     'login',
     'registro',
-    'home'
+    'home',
+    'dados_pessoais',
+    'sair',
+    'produtos',
+    'cadastrar_produto'
 ];
 
 if (isset($_GET['pagina']) && in_array($_GET['pagina'], $paginas)){
     $pagina = $_GET['pagina'];
 }else{
     $pagina = 'login';
+}
+
+if (isset($_SESSION['logado']) && $_SESSION['logado'] === true){
+
+    if(in_array($pagina, ['login', 'registro'])){
+        $pagina = 'home';
+    }
+    
+}else{
+    if(!in_array($pagina, ['login','registro'])){
+        $pagina = 'login';
+    }
 }
 
 require_once("./paginas/{$pagina}.php");

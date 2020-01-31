@@ -4,14 +4,12 @@ $numero1 = 60;
 $numero2 = 2;
 
 
-if (
-    
-    > $numero2){
-    echo "O numero1 $numero1 é maior que o numero2 $numero2 !!!!!";
-}else{
-
-    echo "O numero2 $numero2 é maior que o numero1 $numero1 !!!!!";
-};
+// if ( 0 > $numero2){
+//     echo "O numero1 $numero1 é maior que o numero2 $numero2 !!!!!";
+// }
+// else{
+//     echo "O numero2 $numero2 é maior que o numero1 $numero1 !!!!!";
+// };
 
 echo "<br>";
 echo "<br>";
