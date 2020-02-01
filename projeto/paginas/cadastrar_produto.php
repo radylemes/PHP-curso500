@@ -24,7 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 }
 ?>
 
-<div class="container">
+<div class="container align-self-start">
+<br>
+<div class="card" style="width: 50rem;">
+  <div class="card-header bg-dark">
+  <h3 class="text-white">Cadastrar produto</h3>
+  </div>
+  <div class="card-body">
 
     <?php if (isset($resultado)) : ?>
         <div class="alert alert-danger" role="alert">
@@ -56,4 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         </div>
         <button type="submit" class="btn btn-success">Cadastrar</button>
     </form>
+</div>
+</div>
 </div>

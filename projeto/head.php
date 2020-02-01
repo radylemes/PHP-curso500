@@ -1,3 +1,16 @@
+<?php
+
+require_once('./acoes/produtos.php');
+
+$nome = $_GET['nome'] ?? '';
+$produtos = buscaTodosProdutos($conexao, $nome);
+if (!$produtos) {
+    $erro = "Falha ao buscar produtos cadastrados";
+}
+
+?>
+
+
 <!doctype html>
 <html lang="pt_br">
     <head>
@@ -40,14 +53,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?pagina=produtos"><i class="fas fa-store mr-1"></i>Produtos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?pagina=produto_usuario">Relação</a>
+                    </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Busca" aria-label="Search">
+                    <input type="hidden" name="pagina" value="produtos">
+                    <input class="form-control mr-sm-2" type="search" id="nome" name="nome" placeholder="Busca produtos" aria-label="Search">
+                    <!-- <input type="text" class="form-control mb-2 mr-sm-2"  placeholder="Nome do produto..." required> -->
                     <button class="btn btn-info my-2 my-sm-0" ><i class="fas fa-search"></i></button>
                     </form>
 
                     <li class="nav-item">
-                        <a class="nav-link btn btn-danger ml-4" href="?pagina=sair">Sair</a>
+                        <a class="nav-link btn btn-danger ml-4" href="?pagina=sair"><i class="fas fa-power-off"></i></a>
                     </li>
                 </div>
             </nav>
